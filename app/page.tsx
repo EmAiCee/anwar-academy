@@ -1,6 +1,9 @@
 import Hero from "@/components/home/Hero";
 import DivisionsPreview from "@/components/home/DivisionsPreview";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+import LeadershipPreview from "@/components/home/LeadershipPreview";
+import GalleryPreview from "@/components/home/GalleryPreview";
+import HomeCTA from "@/components/home/HomeCTA";
 
 export default function Home() {
   return (
@@ -8,7 +11,9 @@ export default function Home() {
       <Hero />
       <DivisionsPreview />
       <WhyChooseUs />
-      {/* We will add Leadership Preview and Gallery Preview in Phase 3 */}
+      <LeadershipPreview />
+      <GalleryPreview />
+      <HomeCTA />
     </>
   );
 }
