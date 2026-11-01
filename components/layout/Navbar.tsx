@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { HiMenu, HiX } from "react-icons/hi";
 
 const navLinks = [
@@ -21,9 +22,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-brand-red rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
-              A
-            </div>
+            <Image
+             src="/images/logo.png"
+              alt="Anwar Leadership Academy Logo"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain"
+              priority
+            />
             <div className="flex flex-col">
               <span className="font-heading font-bold text-lg leading-tight text-brand-blue">
                 ANWAR

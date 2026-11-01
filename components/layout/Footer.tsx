@@ -2,7 +2,14 @@ import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 
-export default function Footer() {
+async function getCurrentYear() {
+  "use cache";
+  return new Date().getFullYear();
+}
+
+export default async function Footer() {
+  const currentYear = await getCurrentYear();
+
   return (
     <footer className="bg-brand-charcoal text-gray-300 py-12 border-t-4 border-brand-red">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -71,7 +78,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} Anwar Leadership Academy. All rights reserved.
+        &copy; {currentYear} Anwar Leadership Academy. All rights reserved.
       </div>
     </footer>
   );
