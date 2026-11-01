@@ -28,7 +28,7 @@ const coreValues = [
   {
     title: "Discipline",
     desc: "Structure and self-control form the foundation of character and lifelong success.",
-    icon: <FiShield size={28} className="text-brand-blue" />,
+    icon: <FiShield size={28} className="text-brand-red" />,
   },
   {
     title: "Integrity",
