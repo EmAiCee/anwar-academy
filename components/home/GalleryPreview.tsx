@@ -1,21 +1,38 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
-import {
-  FaFlask,
-  FaLaptopCode,
-  FaBook,
-  FaFutbol,
-  FaMicroscope,
-  FaChalkboardTeacher,
-} from "react-icons/fa";
 
 const tiles = [
-  { icon: <FaLaptopCode size={28} />, label: "Computer Lab", color: "bg-brand-blue" },
-  { icon: <FaFlask size={28} />, label: "Science Lab", color: "bg-brand-red" },
-  { icon: <FaBook size={28} />, label: "Library", color: "bg-brand-red" },
-  { icon: <FaChalkboardTeacher size={28} />, label: "Classrooms", color: "bg-brand-blue" },
-  { icon: <FaFutbol size={28} />, label: "Playground", color: "bg-brand-blue" },
-  { icon: <FaMicroscope size={28} />, label: "Innovation", color: "bg-brand-red" },
+  {
+    label: "Computer Lab",
+    image:
+      "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=800&q=80&auto=format&fit=crop",
+  },
+  {
+    label: "Science Lab",
+    image:
+      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80&auto=format&fit=crop",
+  },
+  {
+    label: "Library",
+    image:
+      "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80&auto=format&fit=crop",
+  },
+  {
+    label: "Classrooms",
+    image:
+      "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&auto=format&fit=crop",
+  },
+  {
+    label: "Playground",
+    image:
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80&auto=format&fit=crop",
+  },
+  {
+    label: "Innovation",
+    image:
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80&auto=format&fit=crop",
+  },
 ];
 
 export default function GalleryPreview() {
@@ -37,18 +54,25 @@ export default function GalleryPreview() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {tiles.map((tile, i) => (
-            <div
+            <Link
               key={i}
-              className={`${tile.color} relative aspect-square rounded-2xl flex flex-col items-center justify-center text-white p-6 group overflow-hidden`}
+              href="/gallery"
+              className="group relative aspect-square overflow-hidden rounded-2xl bg-brand-blue"
             >
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition" />
-              <div className="relative mb-3 opacity-90 group-hover:scale-110 transition-transform">
-                {tile.icon}
+              <Image
+                src={tile.image}
+                alt={tile.label}
+                fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-colors" />
+              <div className="absolute inset-x-0 bottom-0 p-4">
+                <p className="text-white font-semibold text-sm md:text-base">
+                  {tile.label}
+                </p>
               </div>
-              <p className="relative font-semibold text-sm md:text-base">
-                {tile.label}
-              </p>
-            </div>
+            </Link>
           ))}
         </div>
 
